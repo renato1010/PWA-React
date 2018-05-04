@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node scripts/copy_assets.js && webpack --config webpack.config.prod.js",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "start:public": "webpack --config webpack.config.js && http-server -c-1 -p 5000"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
+    "http-server": "^0.11.1",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.6.0",
