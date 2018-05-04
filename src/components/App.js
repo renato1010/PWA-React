@@ -5,6 +5,7 @@ import './app.css';
 import { getTodosLosPartidos } from './aux-funcs/axios-help-funcs';
 
 class App extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -15,16 +16,26 @@ class App extends Component {
     };
   }
   componentDidMount() {
+    this._isMounted = true;
     this.setState({ isLoading: true });
     getTodosLosPartidos()
       .then(partidosArr => {
-        this.setState({ partidos: partidosArr, isLoaded: true, isLoading: false });
+        this.successHandler(partidosArr);
       })
       .catch(err => {
-        this.setState({ isLoaded: false, isLoading: false });
         console.log(err);
+        this.failureHandler();
       });
   }
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+  successHandler = response => {
+    this._isMounted && this.setState({ partidos: response, isLoaded: true, isLoading: false });
+  };
+  failureHandler = () => {
+    this._isMounted && this.setState({ isLoaded: false, isLoading: false });
+  };
   render() {
     return (
       <div id="root">
