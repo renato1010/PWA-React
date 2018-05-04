@@ -11,11 +11,11 @@
 
 <body>
   <div id="root"></div>
-  <script src="bundle.js"></script>
-  <script>
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script></body>
+<script>
     // service worker script
     if ('serviceWorker' in navigator) {
-      // registrar el SW
+      // registrar el SW, pero espero que cargue la pagina primero
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('sw.js')
           .then(function (registration) {
@@ -29,6 +29,5 @@
       console.log('Service Workers sin soporte');
     }
   </script>
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script><script type="text/javascript" src="/bundle.js"></script></body>
 
 </html>
