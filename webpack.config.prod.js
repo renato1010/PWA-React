@@ -38,7 +38,7 @@ module.exports = {
       }
     ]
   },
-  // now devServer in production
+  // no devServer in production
   plugins: [
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
     new HtmlWebpackPlugin({
