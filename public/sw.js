@@ -1,8 +1,11 @@
 const CACHE_NAME = 'V7';
-
-const STATIC_PATHS = ['/', '/offline.html', '/assets/favicon-32x32.png', '/assets/favicon-16x16.png'];
+const STATIC_PATHS = [
+  '/',
+  '/offline.html',
+  '/assets/favicon-32x32.png',
+  '/assets/favicon-16x16.png'
+];
 // install event
-
 self.addEventListener('install', installEvent => {
   console.log('[Service-Worker] Install');
   installEvent.waitUntil(
